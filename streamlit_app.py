@@ -20,7 +20,7 @@ if st.session_state.stage == "start":
 
     if st.session_state.choice:
         st.session_state.prize = random.randint(1, 3)
-        possible_doors = [d for d in [1,2,3] if d != st.session_state.choice and d != st.session_state.prize]
+        possible_doors = [d for d in [1, 2, 3] if d != st.session_state.choice and d != st.session_state.prize]
         st.session_state.revealed = random.choice(possible_doors)
         st.session_state.stage = "reveal"
         st.experimental_rerun()
@@ -33,7 +33,7 @@ elif st.session_state.stage == "reveal":
     col1, col2 = st.columns(2)
     with col1:
         if st.button("Wechseln"):
-            remaining = [d for d in [1,2,3] if d != st.session_state.choice and d != st.session_state.revealed][0]
+            remaining = [d for d in [1, 2, 3] if d != st.session_state.choice and d != st.session_state.revealed][0]
             st.session_state.choice = remaining
             st.session_state.stage = "result"
             st.experimental_rerun()
